@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken')
 var bcrypt = require('bcryptjs');
 require('dotenv').config();
 
+
+// Register Api for user
 exports.register = async (req, res) => {
     const { username, password } = req.body;
     
@@ -22,7 +24,6 @@ exports.register = async (req, res) => {
         await user.save();
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-        // res.cookie('JWT_Token', token, {httpOnly: true, secure: true, maxAge: 10 * 60 * 1000 })
         res.status(201).json({ token });
 
     } catch (error) {
@@ -31,6 +32,7 @@ exports.register = async (req, res) => {
 };
 
 
+// Login Api for user
 exports.login = async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -40,10 +42,12 @@ exports.login = async (req, res) => {
       }
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        return res.status(400).json({ error: 'Invalid credentials' });
+        return res.status(400).json({ error: 'wronge password' });
       }
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-      res.cookie('JWT_Token', token, {httpOnly: true, secure: true, maxAge: 10 * 60 * 1000 })
+
+      // save token for 3 hours
+      res.cookie('JWT_Token', token, {httpOnly: true, secure: true, maxAge: 3 * 60 * 60 * 1000, sameSite: 'strict',})
 
       res.status(200).json({ token });
     } catch (error) {

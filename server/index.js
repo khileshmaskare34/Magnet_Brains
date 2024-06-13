@@ -2,7 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const userRouter = require('./routes/users')
 const taskRouter = require('./routes/tasks')
-// const cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
@@ -13,7 +13,10 @@ connectDB();
 
 app.use(morgan('dev'));
 
-// app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Frontend URL
+    credentials: true, // Enable cookies to be sent
+}));
 app.use(bodyParser.json());
 app.use(cookieParser())
 

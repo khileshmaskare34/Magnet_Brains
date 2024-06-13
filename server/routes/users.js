@@ -11,10 +11,6 @@ router.get('/', (req, res)=>{
 router.post('/register', register)
 router.post('/login', login)
 
-router.get('/verify', checkTokenExp, (req, res)=>{
-    res.send('hello its token verify');
-})
-
 
 
 module.exports = router;

@@ -6,19 +6,18 @@ const
     getTasks, 
     getTask, 
     updateTask, 
-    deleteTask 
+    deleteTask, 
+    getAllTask
 } = require('../controllers/taskControllers');
 
 const router = express.Router();
 const { checkTokenExp } = require('../middleware/AOuth')
 
-router.get('/', (req, res)=>{
-    res.send("tasks route here")
-})
 
 router.post('/', checkTokenExp, createTask)
+router.get('/getAllTask', getAllTask)
 router.get('/', checkTokenExp, getTasks)
-router.get('/:id', checkTokenExp, getTask)
+router.get('/:id', getTask)
 router.put('/:id', checkTokenExp, updateTask)
 router.delete('/:id', checkTokenExp, deleteTask)
 

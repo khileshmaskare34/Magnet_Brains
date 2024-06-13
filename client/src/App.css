@@ -1,24 +1,34 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-@keyframes logo-spin {
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -27,16 +37,230 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* -----header css---------- */
+.header{
+  display: flex;
+  padding: 20px 10px;
+  justify-content: space-between;
+}
+.left-header a{
+  text-decoration: none;
+  color: black;
+}
+.right-header{
+  display: flex;
+  gap: 20px;
+}
+.right-header ul{
+  display: flex;
+  gap: 10px;
+  li{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+}
+button{
+  padding: 7px 10px;
+  cursor: pointer;
+  background-color: rgb(0, 82, 100);
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+
+/* -----------register/login page css---------- */
+.signup{
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  /* width: 70vw; */
+  /* height: 70vh; */
+  /* background-color: #282c34; */
+  box-shadow: 0 0 5px 2px #e4dede;
+  padding: 2vh 2vw;
+}
+.signup h1{
+  /* margin: 2% 20%; */
+  text-align: center;
+}
+.signup-box{
+  display: flex;
+}
+.register-form{
+  padding: 0 2vw;
+  width: 35vw;
+}
+.form-group{
+  margin-top: 3vh;
+  display: flex;
+  border-bottom: 1px solid black;
+
+}
+label{
+  margin: 10px;
+}
+input[type="text"], input[type="password"], input[type="date"]{
+  border: none;
+  outline: none;
+
+}
+select{
+  border: none;
+  outline: none;
+  margin-left: 15px;
+}
+
+.image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+}
+img{
+  width: 100%;
+}
+p{
+  color: rgb(0, 82, 100);
+}
+.signup-btn{
+  border: none;
+  margin-top: 3vh;
+  margin-left: 40%;
+  padding: 7px 30px;
+  background-color: rgb(0, 82, 100);
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.send-btn{
+  margin-top: 2vh;
+}
+.send-btn> button{
+  padding: 7px 15px;
+  border-radius: 20px;
+  background:rgb(89, 83, 199);
+  color: white;
+  border: none;
+}
+
+
+/* -----------homepage css---------- */
+
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+  background-color: rgb(255, 255, 255);
+  .top-box{
+    display: flex;
+    gap: 50px;
+
+    button{
+      background-color: rgb(0, 82, 100);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      padding: 20px 10px;
+      transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
+    }
+    button:hover{
+      scale: 1.1;
+    }
   }
 }
 
-.card {
-  padding: 2em;
+
+
+/* ---------------------loggedIn page-------------------------- */
+
+.task-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  .color{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2vh;
+  }
+  .green{
+    background-color: green;
+    color: white;
+    padding: 5px;
+    font-size: .3rem;
+  }
+  .orange{
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    font-size: .3rem;
+  }
+  .red{
+    background-color: red;
+    color: white;
+    padding: 5px;
+    font-size: .3rem;
+  }
+}
+.task-list{
+  width: 70%;
+  margin-top: 5vh;
+  h1{
+    text-align: center;
+    margin-bottom: 3vh;
+  }
+  li{
+    list-style: none;
+  }
+}
+.particuler-task{
+  position: relative;
+  box-shadow: 0 0 5px 2px #e4dede;
+  padding: 10px 20px;
+  list-style: none;
+  margin-top: 2vh;
+  display: flex;
+  .left-task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .right-button{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translate(0%, -50%);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+
+/* Taskpage css */
+.t-p{
+  margin-top: 1.5vh;
+}
+h3{
+  color: black;
+}
+li{
+  list-style: none;
 }
